@@ -305,7 +305,8 @@ function draw() {
     stroke(0);
     text('From left to right, use keyboard "d" "f" "j" "k" to control four lines to hit the square.',800,height-100);
     text('When the falling note is going through the white boxs, use the keyboard to hit them!',500,height-150);
-    text('Most notes are arranged with the rhythm of the music, follow the music then you will not miss them ',700,height-50)
+    text('Most notes are arranged with the rhythm of the music, follow the music then you will not miss them ',700,height-50);
+    text('Press to hit the short note, Hold to hit the long note',700,height-30);
     if(st == true){
       i2=100;
     }
@@ -319,7 +320,7 @@ function draw() {
   }
   
   if (pattern==2){
-    
+    i2 =2;
     background(220);
     image(img, 0, 0,width,height);
     fill(0,0,0,70);
@@ -667,6 +668,7 @@ function draw() {
   }
   
   if(pattern == 3){
+    i2 = 0;
     if(pic){
       mySound.jump(145,18);
       pic = false;
