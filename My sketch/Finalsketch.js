@@ -12,18 +12,13 @@ let keys = false;
 
 let i2 = 0;//
 let i3 = 0;
-let i4 = -10800;
+let i4 = -10200;
 
 
 // let count = 0;//计数器
 let modelX = 70;
 let modelY = 20;//判定器大小 the withe rectangle 
 let lineX = 380;
-// let lineY = windowHeight/5;
-// let timer = true;
-// let good = false;//时机判断
-// let perfect = false;//时机
-// let m;
 let ifBroke = false;//结果 //whether hit the note
 let pattern = 0;
 let k = 50;
@@ -31,6 +26,7 @@ let score = 0;
 let sc = 0;//得分总和
 let combo = 0;//combo数
 let num1 = true;
+let pic = true;
 
 let sTime, theta = 0;//bubbles
 let frames = 240,
@@ -72,7 +68,7 @@ function setup() {
   c3 = new Person(shu3,-6400,s2,keys);
   d3 = new Person(shu4,-6500,s2,keys);
   c4 = new Person(shu3,-6700,s2,keys);
-  d4 = new Person(shu4,-6750,s2,keys);
+  d4 = new Person(shu4,-6720,s2,keys);
   
   c5 = new Person(shu3,-7000,s2,keys);
   d5 = new Person(shu4,-7100,s2,keys);
@@ -82,7 +78,7 @@ function setup() {
   a8 = new Person(shu1,-7500,s2,keys);
   b6 = new Person(shu2,-7560,s2,keys);
   a9 = new Person(shu1,-7800,s2,keys);
-  b7 = new Person(shu2,-7830,s2,keys);
+  b7 = new Person(shu2,-7820,s2,keys);
   
   a10 = new Person(shu1,-5700,s2,keys);
   a11 = new Person(shu1,-5900,s2,keys);
@@ -95,28 +91,67 @@ function setup() {
   d10 = new Person(shu4,-6300,s2,keys);
   d11 = new Person(shu4,-6500,s2,keys);
   
+  
+  //圈圈
   a15 = new Person(shu1,i4,s2,keys);
-  a16 = new Person(shu1,i4+50,s2,keys);
-  a17 = new Person(shu1,i4+100,s2,keys);
-  a18 = new Person(shu1,i4+150,s2,keys);
-  a19 = new Person(shu1,i4+200,s2,keys);
-  b8 = new Person(shu2,i4+250,s2,keys);
-  b9 = new Person(shu2,i4+300,s2,keys);
-  a20 = new Person(shu1,i4+350,s2,keys);
-  a21 = new Person(shu1,i4+400,s2,keys);
-  a22 = new Person(shu1,i4+450,s2,keys);
-  a23 = new Person(shu1,i4+500,s2,keys);
-  a24 = new Person(shu1,i4+550,s2,keys);
-  
-  c7 = new Person(shu3,-7200,s2,keys);
-  c7 = new Person(shu3,-7200,s2,keys);
-  c7 = new Person(shu3,-7200,s2,keys);
-  c7 = new Person(shu3,-7200,s2,keys);
-  c7 = new Person(shu3,-7200,s2,keys);
+  a16 = new Person(shu1,i4-50,s2,keys);
+  a17 = new Person(shu1,i4-100,s2,keys);
+  a18 = new Person(shu1,i4-150,s2,keys);
+  a19 = new Person(shu1,i4-200,s2,keys);
+  b8 = new Person(shu2,i4-400,s2,keys);
+  b9 = new Person(shu2,i4-450,s2,keys);
+  a20 = new Person(shu1,i4-600,s2,keys);
+  a21 = new Person(shu1,i4-650,s2,keys);
+  a22 = new Person(shu1,i4-700,s2,keys);
+  a23 = new Person(shu1,i4-750,s2,keys);
+  a24 = new Person(shu1,i4-800,s2,keys);
   
   
-  d11 = new Person(shu4,-7250,s2,keys);
+  //圈圈
+  d12 = new Person(shu4,i4-1050,s2,keys);
+  d13 = new Person(shu4,i4-1100,s2,keys);
+  d14 = new Person(shu4,i4-1150,s2,keys);
+  d15 = new Person(shu4,i4-1200,s2,keys);
+  d16 = new Person(shu4,i4-1250,s2,keys);
+  c7 = new Person(shu3,i4-1400,s2,keys);
+  c8 = new Person(shu3,i4-1450,s2,keys);
+  d17 = new Person(shu4,i4-1600,s2,keys);
+  d18 = new Person(shu4,i4-1650,s2,keys);
+  d19 = new Person(shu4,i4-1700,s2,keys);
+  d20 = new Person(shu4,i4-1750,s2,keys);
+  d21 = new Person(shu4,i4-1800,s2,keys);
   
+  //三段式
+  a25 = new Person(shu1,i4-2050,s2,keys);
+  b10 = new Person(shu2,i4-2250,s2,keys);
+  c9 = new Person(shu3,i4-2450,s2,keys);
+  d22 = new Person(shu4,i4-2650,s2,keys);
+  a26 = new Person(shu1,i4-2850,s2,keys);
+  b11 = new Person(shu2,i4-3050,s2,keys);
+  
+  
+  //End
+  b12 = new Person(shu2,i4-3250,s2,keys);
+  
+  a27 = new Person(shu1,-250,s2,keys);
+  a28 = new Person(shu1,-350,s2,keys);
+  a29 = new Person(shu1,-450,s2,keys);
+  
+  a30 = new Person(shu1,-650,s2,keys);
+  a31 = new Person(shu1,-750,s2,keys);
+  a32 = new Person(shu1,-850,s2,keys);
+  
+  a33 = new Person(shu1,-1050,s2,keys);
+  b13 = new Person(shu2,-1100,s2,keys);
+  c10 = new Person(shu3,-1200,s2,keys);
+  d23 = new Person(shu4,-1300,s2,keys);
+  
+  a34 = new Person(shu1,-1400,s2,keys);
+  
+  a35 = new Person(shu1,-3300,s2,keys);
+  b14 = new Person(shu2,-3350,s2,keys);
+  c11 = new Person(shu3,-3400,s2,keys);
+  d24 = new Person(shu4,-3450,s2,keys);
   
   
   
@@ -124,11 +159,12 @@ function setup() {
   splatAni = loadAnimation('2.png', { frameSize: [120, 158], frames:4 });
 
 
-  
+        
 }
 
 function preload(){
   img = loadImage('Yuki.png');
+  img2 = loadImage('233.png');
   soundFormats('mp3', 'ogg');
   mySound = loadSound('雪降り、メリクリ.mp3');
   Start = loadSound('start.mp3');
@@ -209,6 +245,7 @@ function draw() {
   
     // let k1 = random(10,200);
   if(pattern==0){//Start Page开始页
+      i2 = 0;
       background(0);
       noStroke();
       randomSeed(rs);
@@ -226,7 +263,10 @@ function draw() {
       textAlign(CENTER);
       textSize(50);
       text('Phigros Beta', width / 2, height / 2);
+      
       textSize(15);
+      text('A music game,please turn on your volume', width / 2, height / 2+50);
+      textSize(25);
       text('Press space to start',width/2,height-100);
 
     
@@ -243,14 +283,29 @@ function draw() {
     
     fill(0);
     rect(0,0,205,100);//选择框1
+    
+    
     fill(0,0,0,80);
     rect(0,100,205,100);
 
+    
     stroke(255);
     strokeWeight(10);
     noFill();
     rect(0,i2,200,100);
-  
+    
+    noStroke();
+    fill(255);
+    textSize(20);
+    text('雪降り、メリクリ',100,50);
+    text('Press space to start',100,70);
+    text('N/A',100,150);
+    text('To be continue',100,190);
+    
+    stroke(0);
+    text('From left to right, use keyboard "d" "f" "j" "k" to control four lines to hit the square.',800,height-100);
+    text('When the falling note is going through the white boxs, use the keyboard to hit them!',500,height-150);
+    text('Most notes are arranged with the rhythm of the music, follow the music then you will not miss them ',700,height-50)
     if(st == true){
       i2=100;
     }
@@ -263,7 +318,7 @@ function draw() {
     
   }
   
-  if (pattern>1){
+  if (pattern==2){
     
     background(220);
     image(img, 0, 0,width,height);
@@ -492,9 +547,104 @@ function draw() {
     a24.judge();
     
     
+    d12.display1();
+    d12.update2();
+    d12.kHit(score);
+    d12.judge();
+    d13.display1();
+    d13.update2();
+    d13.kHit(score);
+    d13.judge();
+    d14.display1();
+    d14.update2();
+    d14.kHit(score);
+    d14.judge();
+    d15.display1();
+    d15.update2();
+    d15.kHit(score);
+    d15.judge();
+    d16.display1();
+    d16.update2();
+    d16.kHit(score);
+    d16.judge();
+    c7.display1();
+    c7.update2();
+    c7.jHit(score);
+    c7.judge();
+    c8.display1();
+    c8.update2();
+    c8.jHit(score);
+    c8.judge();
+    d17.display1();
+    d17.update2();
+    d17.kHit(score);
+    d17.judge();
+    d18.display1();
+    d18.update2();
+    d18.kHit(score);
+    d18.judge();
+    d19.display1();
+    d19.update2();
+    d19.kHit(score);
+    d19.judge();
+    d20.display1();
+    d20.update2();
+    d20.kHit(score);
+    d20.judge();
+    d21.display1();
+    d21.update2();
+    d21.kHit(score);
+    d21.judge();
     
-    sc = sc+a1.dHit(score)+a2.dHit(score)+a3.dHit(score)+b1.fHit(score)+c1.jHit(score)+d1.kHit(score);
-    // print(sc);
+    
+    a25.display2();
+    a25.update2();
+    a25.dHit2(score);
+    a25.judge2(); 
+    b10.display2();
+    b10.update2();
+    b10.fHit2(score);
+    b10.judge2();   
+    c9.display2();
+    c9.update2();
+    c9.jHit2(score);
+    c9.judge2();
+    d22.display2();
+    d22.update2();
+    d22.kHit2(score);
+    d22.judge2();
+    a26.display2();
+    a26.update2();
+    a26.dHit2(score);
+    a26.judge2(); 
+    b11.display2();
+    b11.update2();
+    b11.fHit2(score);
+    b11.judge2(); 
+    
+    b12.display3();// The end
+    b12.update2();
+    b12.fHit2(score);
+    b12.judge2();
+    b12.judgeEx();
+    
+    if(b12.judgeEx()){
+      pattern=3;
+    }
+    
+    
+    
+    
+    sc = sc+a1.dHit(score)+a2.dHit(score)+a3.dHit(score)+a4.dHit(score)+a5.dHit2(score)+a6.dHit(score)+a7.dHit(score)+a8.dHit(score)+a9.dHit(score)+a10.dHit(score)+a11.dHit(score)+
+      a12.dHit(score)+a13.dHit(score)+a14.dHit(score)+a15.dHit(score)+a16.dHit(score)+a17.dHit(score)+a18.dHit(score)+
+      a19.dHit(score)+a20.dHit(score)+a21.dHit(score)+a22.dHit(score)+a23.dHit(score)+a24.dHit(score)+a25.dHit2(score)+a26.dHit(score)+a27.dHit(score)+a28.dHit(score)+
+    a29.dHit(score)+a30.dHit(score)+a31.dHit(score)+a32.dHit(score)+a33.dHit(score)+a34.dHit(score)+a35.dHit(score)+b1.fHit(score)+
+      b2.fHit(score)+b3.fHit2(score)+b4.fHit(score)+b5.fHit(score)+b6.fHit(score)+b7.fHit(score)+b8.fHit(score)+b9.fHit(score)+b10.fHit2(score)+
+    b11.fHit2(score)+b12.fHit2(score)+b13.fHit(score)+b14.fHit(score)+c1.jHit(score)+c2.jHit2(score)+c3.jHit(score)+c4.jHit(score)+c5.jHit(score)+c6.jHit(score)+c7.jHit(score)+
+      +c8.jHit(score)+c9.jHit2(score)+c10.jHit(score)+c11.jHit(score)+d1.kHit(score)+d2.kHit2(score)+d3.kHit(score)+d4.kHit(score)+d5.kHit(score)
+    +d6.kHit(score)+d7.kHit(score)+d8.kHit(score)+d9.kHit(score)+d10.kHit(score)+d11.kHit(score)+d12.kHit(score)+d13.kHit(score)+d14.kHit(score)
+    +d15.kHit(score)+d16.kHit(score)+d17.kHit(score)+d18.kHit(score)+d19.kHit(score)+d20.kHit(score)+d21.kHit(score)+d22.kHit2(score)+d23.kHit(score);
+    +d24.kHit(score)// print(sc);
     textSize(40);
     stroke(250,233,63);
     strokeWeight(10);
@@ -512,10 +662,134 @@ function draw() {
     a1.pmo(width/5*3,height/5*4,jt);
     a1.pmo(width/5*4,height/5*4,kt);
 
-    sm = second();
     
 
   }
+  
+  if(pattern == 3){
+    if(pic){
+      mySound.jump(145,18);
+      pic = false;
+    }
+      image(img2, 0, 0,width,height);
+      textSize(40);
+      stroke(250,233,63);
+      strokeWeight(10);
+      fill(43,234,234);
+      sc= sc + a27.dHit(score)+a28.dHit(score)+a29.dHit(score)+a30.dHit(score)+a31.dHit(score)+a32.dHit(score)+a33.dHit(score)
+    +a34.dHit(score)+a35.dHit(score)+b13.fHit(score)+b14.fHit(score)+c10.jHit(score);+c11.jHit(score)+d23.kHit(score)+d24 .kHit(score);;
+      text(sc, width-100, height/5);//score
+      a1.dline(width/5);
+      a1.dline2(width/5*2);
+      a1.dline3(width/5*3);
+      a1.dline4(width/5*4);
+      a1.pline(height/5*4);
+      fill(0,0,0,70);
+      textSize(30);
+      stroke(250,233,63);
+      fill(43,234,234);
+      text('Merry Christmas',width/2,height/5);
+    
+      a27.display1();
+      a27.update();
+      a27.dHit(score);
+      a27.judge();
+    
+      a28.display1();
+      a28.update();
+      a28.dHit(score);
+      a28.judge();
+    
+      a29.display1();
+      a29.update();
+      a29.dHit(score);
+      a29.judge();
+    
+      a30.display1();
+      a30.update();
+      a30.dHit(score);
+      a30.judge();
+      
+      b13.display1();
+      b13.update();
+      b13.fHit(score);
+      b13.judge();
+
+      c10.display1();
+      c10.update();
+      c10.jHit(score);
+      c10.judge();
+
+      d23.display1();
+      d23.update();
+      d23.kHit(score);
+      d23.judge();
+
+      a31.display1();
+      a31.update();
+      a31.dHit(score);
+      a31.judge();
+      a32.display1();
+      a32.update();
+      a32.dHit(score);
+      a32.judge();
+      a33.display1();
+      a33.update();
+      a33.dHit(score);
+      a33.judge();
+      a34.display1();
+      a34.update();
+      a34.dHit(score);
+      a34.judge();
+    
+    
+      a35.display1();
+      a35.update();
+      a35.dHit(score);
+      a35.judge();
+    
+      b14.display1();
+      b14.update();
+      b14.fHit(score);
+      b14.judge();
+
+      c11.display1();
+      c11.update();
+      c11.jHit(score);
+      c11.judge();
+
+      d24.display1();
+      d24.update();
+      d24.kHit(score);
+      d24.judge();
+    
+    if(d24.judgeEx()){
+      stroke(0);
+      text('Press space to check your score!',width/2,height/5*4);
+    }
+  }
+  
+  if(pattern == 4){
+    image(img,0,0,width,height);
+    rectMode(CORNER);
+    fill(0);
+    rect(0,0,width/2+50,height,40);
+    fill(250,91,72);
+    textSize(30);
+    text('Your score is',300,height/5);
+    text(sc,500,height/5);
+    text('Try to get Full Combo and higher score!',300,height/5+100);
+    text('Refresh the page to play again',300,height/5+200);
+    fill(17,246,182);
+    textSize(35);
+    text('Thank you for playing, happy Christmas!',350,height/5+300);
+    i2 = 1;
+    
+    
+    
+    // rectMode(CENTER);  
+  }
+  
 
 
 
@@ -549,45 +823,27 @@ function keyPressed(){
     if(i2 == 0){
       pattern++;
     }
+    if(i2 == 1){
+      pattern = 0;
+    }
+    if(pattern == 0){
+      Start.loop();
+    }
     if(pattern == 1){
+      Start.pause();
       Select.loop();
-      Select.jump(6, 100);
+      Select.jump(6, 168);
     }
     if(pattern == 2){
       Select.pause();
       mySound.play();
     }
+    if(pattern == 3){
+      // mySound.pause();
+
+    }
   }
-  
-  // if(a1.judge() == true && num1==0){
-  //  combo+=1;
-  //  num1+=1;
-  // }
-  // if(a2.judge() == true && num1 == 1 ){
-  //  combo+=1;
-  //  num1+=1;
-  // }
-  // if(a3.judge() == true && num1 == 2 ){
-  //  combo+=1;
-  //  num1+=1;
-  // }
-  // if(b1.judge() == true && num1 == 3 ){
-  //  combo+=1;
-  //  num1+=1;
-  // }
-  // if(c1.judge() == true && num1 == 4 ){
-  //  combo+=1;
-  //  num1+=1;
-  // }
-  // if(d1.judge() == true && num1 == 5 ){
-  //  combo+=1;
-  //  num1+=1;
-  //  print(num1);
-  // }
-  // else{
-  //  combo = 0;
-  //  num1+=1;
-  // }
+
   
   
 

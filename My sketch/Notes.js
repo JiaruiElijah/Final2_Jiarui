@@ -16,6 +16,8 @@ class Person{
     this.comb = false;
     
     this.hold = false;
+    
+    this.picture = false;
 
   }
 
@@ -79,12 +81,23 @@ class Person{
     line(-40,50,40,50);
     pop();
   }
-  
+  display3(){
+    push();
+    translate(this.position.x,this.position.y);
+
+  // stroke(220);
+    noStroke();
+    fill(250,91,72,this.sx);//body
+    rect(0,0,80,100);
+    stroke(255);
+    line(-40,50,40,50);
+    pop();
+  }
 
   dHit(s){
   this.score = s;
   if(dt == true ){//判断打击点
-    if(this.position.y>height/5*4-modelY && this.position.y<height/5*4+modelY+5){
+    if(this.position.y>height/5*4-modelY-50 && this.position.y<height/5*4+modelY+50){
       // ifBroke = true;
       this.k = true;
       this.score+=1;
@@ -115,7 +128,7 @@ class Person{
   fHit(s){
   this.score = s;
   if(ft == true ){//判断打击点
-    if(this.position.y>height/5*4-modelY && this.position.y<height/5*4+modelY+5){
+    if(this.position.y>height/5*4-modelY-50 && this.position.y<height/5*4+modelY+50){
       // ifBroke = true;
       this.k = true;
       this.score+=1;
@@ -145,7 +158,7 @@ class Person{
   jHit(s){
   this.score = s;
   if(jt == true ){//判断打击点
-    if(this.position.y>height/5*4-modelY && this.position.y<height/5*4+modelY+5){
+    if(this.position.y>height/5*4-modelY-50 && this.position.y<height/5*4+modelY+50){
       // ifBroke = true;
       this.k = true;
       this.score+=1;
@@ -175,7 +188,7 @@ class Person{
   kHit(s){
   this.score = s;
   if(kt == true ){//判断打击点
-    if(this.position.y>height/5*4-modelY && this.position.y<height/5*4+modelY+5){
+    if(this.position.y>height/5*4-modelY-50 && this.position.y<height/5*4+modelY+50){
       // ifBroke = true;
       this.k = true;
       this.score+=1;
@@ -214,7 +227,9 @@ class Person{
         strokeWeight(3);
         noFill();
         ellipse(this.position.x,height/5*4,this.u,this.u);
-        
+        if(this.u>1000){
+          this.u = 3000;
+        }
 
 
       }
@@ -261,6 +276,14 @@ class Person{
     // text(this.combo,width/2-50,height/5-50);
     return this.comb;
     
+  }
+  
+  judgeEx(){
+    if (this.position.y>height/2){
+      this.picture = true;
+    
+    }
+    return this.picture;
   }
   
   dScore(score){
